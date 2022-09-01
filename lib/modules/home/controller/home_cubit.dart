@@ -10,31 +10,6 @@ class HomeCubit extends Cubit<HomeState>{
 
 
 
-  onChangeLang() async {
 
-
-    SharedPreferences s =await SharedPreferences.getInstance();
-
-    String lang=s.getString('lang')??'ar';
-
-    if(lang=='ar'){
-      s.setString('lang', 'en');
-      Config.loadLanguage('en');
-    }else{
-      s.setString('lang', 'ar');
-      Config.loadLanguage('ar');
-    }
-
-    emit(LanguageState());
-
-  }
-
-  PageController controllerPage=PageController();
-  
-  onChangePage(index){
-    controllerPage.jumpToPage(index);
-    emit(LoadedState());
-
-  }
 
 }
